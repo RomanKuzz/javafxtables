@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import com.sun.javafx.scene.control.IntegerField?>
+
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.FXMLController">
+    <TabPane fx:id="tabs">
+        <Tab text="equipment">
+            <GridPane>
+                <TableView fx:id="postsTable" GridPane.rowIndex="0" onMouseClicked="#switchTables">
+                    <columns>
+                        <TableColumn text="equip_id" >
+                            <cellValueFactory><PropertyValueFactory property="postId" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="title">
+                            <cellValueFactory><PropertyValueFactory property="text" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="postAuthorIdColumn" text="amount">
+                            <cellValueFactory><PropertyValueFactory property="authorId" /></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0"
+                      GridPane.rowIndex="1">
+                    <IntegerField fx:id="postId" promptText="First Name"
+                               prefWidth="90"/>
+                    <TextField fx:id="postText" promptText="Post text"
+                               prefWidth="150"/>
+                    <IntegerField fx:id="postAuthorId" promptText="Author id"
+                               prefWidth="90"/>
+                    <Button text="Add" onAction="#addPost"/>
+                </HBox>
+            </GridPane>
+        </Tab>
+        <Tab text="workers">
+            <GridPane>
+                <TableView fx:id="usersTable">
+                    <columns>
+                        <TableColumn text="dep_num" >
+                            <cellValueFactory><PropertyValueFactory property="userId" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="name">
+                            <cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0"
+                      GridPane.rowIndex="1">
+                    <IntegerField fx:id="userId" promptText="User Id"
+                                  prefWidth="90"/>
+                    <TextField fx:id="userName" promptText="User Name"
+                               prefWidth="150"/>
+                    <Button text="Add" onAction="#addUser"/>
+                </HBox>
+            </GridPane>
+        </Tab>
+        <Tab text="procedure">
+            <GridPane>
+                <TableView fx:id="commentsTable" GridPane.rowIndex="0" onMouseClicked="#switchTables">
+                    <columns>
+                        <TableColumn text="id">
+                            <cellValueFactory><PropertyValueFactory property="commentId" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="commentsPostIdColumn" text="equip_amount">
+                            <cellValueFactory><PropertyValueFactory property="postId" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="commentsAuthorIdColumn" text="workers_amount">
+                            <cellValueFactory><PropertyValueFactory property="authorId" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="process">
+                            <cellValueFactory><PropertyValueFactory property="text" /></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0"
+                      GridPane.rowIndex="1">
+                    <IntegerField fx:id="commentId" promptText="Comment Id"
+                                  prefWidth="90"/>
+                    <IntegerField fx:id="commentPostId" promptText="Post Id"
+                               prefWidth="90"/>
+                    <IntegerField fx:id="commentAuthorId" promptText="Author Id"
+                                  prefWidth="90"/>
+                    <TextField fx:id="commentText" promptText="Text"
+                               prefWidth="150"/>
+                    <Button text="Add" onAction="#addComment" />
+                </HBox>
+            </GridPane>
+        </Tab>
+    </TabPane>
+</GridPane>
