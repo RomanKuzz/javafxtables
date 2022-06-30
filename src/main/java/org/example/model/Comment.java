@@ -13,6 +13,7 @@ public class Comment {
         this(0, 0, 0, "");
     }
 
+
     public Comment(Integer process, Integer postId, Integer authorId, String text) {
         this.process = new SimpleIntegerProperty(process);
         this.postId = new SimpleIntegerProperty(postId);
