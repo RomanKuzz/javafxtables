@@ -4,41 +4,41 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Post {
-    private final SimpleIntegerProperty postId;
-    private final SimpleStringProperty text;
-    private final SimpleIntegerProperty authorId;
+    private final SimpleIntegerProperty amount_of_workers;
+    private final SimpleStringProperty process;
+    private final SimpleIntegerProperty amount_of_equip;
 
     public Post() {
         this(0, "", 0);
     }
 
-    public Post(Integer postId, String text, Integer authorId) {
-        this.postId = new SimpleIntegerProperty(postId);
-        this.text = new SimpleStringProperty(text);
-        this.authorId = new SimpleIntegerProperty(authorId);
+    public Post(Integer amount_of_workers, String process, Integer amount_of_equip) {
+        this.amount_of_workers = new SimpleIntegerProperty(amount_of_workers);
+        this.process = new SimpleStringProperty(process);
+        this.amount_of_equip = new SimpleIntegerProperty(amount_of_equip);
     }
 
     public Integer getPostId() {
-        return postId.get();
+        return amount_of_workers.get();
     }
 
     public void setPostId(Integer postId) {
-        this.postId.set(postId);
+        this.amount_of_workers.set(postId);
     }
 
     public String getText() {
-        return text.get();
+        return process.get();
     }
 
     public void setText(String text) {
-        this.text.set(text);
+        this.process.set(text);
     }
 
     public Integer getAuthorId() {
-        return authorId.get();
+        return amount_of_equip.get();
     }
 
     public void setAuthorId(Integer authorId) {
-        this.authorId .set(authorId);
+        this.amount_of_equip .set(authorId);
     }
 }
